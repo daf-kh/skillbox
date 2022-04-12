@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Task is added!</h1>
+<p th:text="'id: ' + ${task.id}" />
+<p th:text="'name: ' + ${task.name}" />
+<p th:text="'importance: ' + ${task.importance}" />
+<p th:text="'done: ' + ${task.done}" />
+<br><br>
+<h1>Все дела (<span th:text="${tasksCount+1}">0</span>)</h1>
+<div id="task-list">
+    <div th:each="task : ${tasksList}">
+        <a th:attr="data-id=${task.id}" th:text="${task.name}"></a>
+    </div>
+</div>
+<br><br>
+<a href="/">Add another task</a>
+</body>
+</html>
